@@ -1,2 +1,2 @@
-# LConfig
-Personal Linux config and more
+# .config
+Personal Qtile config WIP
