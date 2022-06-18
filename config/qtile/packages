@@ -1,0 +1,18 @@
+#Basic
+qtile
+	python-psutil
+fish
+neofetch
+firefox
+python
+code #vscode
+discord
+nvim
+alacritty
+eog #image viewer
+
+#Bonus
+gimp
+krita
+inkscape
+grub-customizer
