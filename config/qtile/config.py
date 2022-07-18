@@ -105,30 +105,35 @@ keys = [
         desc="Spawn rofi favourite apps"
         ),
     Key([], "XF86AudioMute",
-        lazy.spawn("amixer -q set Master toggle"),
-        lazy.spawn("amixer -q set Headphone unmute"),
+        lazy.spawn("amixer -D pulse sset Master toggle"),
+        #lazy.spawn("amixer -q set Headphone unmute"),
         desc="Mute/Unmute Volume"
         ),
     Key([], "XF86AudioLowerVolume",
-        lazy.spawn("amixer -c 0 sset Master 1- unmute"),
+        lazy.spawn("amixer -c 1 sset Master 2- unmute"),
         desc="Lower Volume"
         ),
     Key([], "XF86AudioRaiseVolume",
-        lazy.spawn("amixer -c 0 sset Master 1+ unmute"),
+        lazy.spawn("amixer -c 1 sset Master 2+ unmute"),
         desc="Raise Volume"
         ),
     Key([mod], "o",
         lazy.spawn("betterlockscreen -l dim"),
         desc="Lock Screen"
         ),
+
+    Key(["control"], "2",
+        lazy.spawn("/home/linus/.config/qtile/network-dmenu"),
+        desc="Manage Network"
+        ),
 ]
 
 groups = [Group("1", layout='columns', spawn='code', label="DEV"),
-          Group("2", layout='monadtall', spawn='firefox', label="WWW"),
-          Group("3", layout='monadtall', spawn='alacritty -e vifm', label="SYS"),
-          Group("4", layout='monadtall', spawn='alacritty', label="SYS"),
-          Group("5", layout='monadtall', label="DOC"),
-          Group("6", layout='monadtall', label="CHAT"),
+          Group("2", layout='columns', spawn='firefox', label="WWW"),
+          Group("3", layout='columns', spawn='alacritty', label="SYS"),
+          Group("4", layout='columns', spawn='alacritty -e ranger', label="SYS"),
+          Group("5", layout='columns', matches=[Match(wm_class='-discord')], label="CHAT"),
+          Group("6", layout='monadtall', label="DOC"),
           Group("7", layout='monadtall', label="MUS"),
           Group("8", layout='monadtall', label="VID"),
           Group("9", layout='floating', label="GFX")]
@@ -170,22 +175,22 @@ for i in groups:
 
 groups.append(ScratchPad('dropdown', [
     DropDown('mixer', 'pavucontrol', x=0.25, y=0.25, width=0.5,
-             height=0.5, opacity=0.8, on_focus_lost_hide=False),
-    DropDown('wlan', 'nm-connection-editor', x=0.25, y=0.25, width=0.5,
              height=0.5, opacity=0.8, on_focus_lost_hide=False)
+    #DropDown('wlan', 'nm-connection-editor', x=0.25, y=0.25, width=0.5,
+    #         height=0.5, opacity=0.8, on_focus_lost_hide=False)
 ]))
 keys.extend([
-    Key(["control"], "1", lazy.group['dropdown'].dropdown_toggle('mixer')),
-    Key(["control"], "2", lazy.group['dropdown'].dropdown_toggle('wlan'))
+    Key(["control"], "1", lazy.group['dropdown'].dropdown_toggle('mixer'))
+    #Key(["control"], "2", lazy.group['dropdown'].dropdown_toggle('wlan'))
 ])
 layouts = [
     layout.Columns(
-        border_on_single=0,
         border_width=2,
         border_focus="800080",
         border_normal="625790",
         margin=4,
-        margin_on_single=0
+        margin_on_single=2,
+        border_on_single=1
     ),
     # layout.Max(),
     # Try more layouts by unleashing below layouts.
@@ -197,8 +202,8 @@ layouts = [
         border_focus="800080",
         border_normal="625790",
         margin=4,
-        margin_on_single=0,
-        border_on_single=0
+        margin_on_single=2,
+        border_on_single=1
     ),
     # layout.MonadWide(),
     # layout.RatioTile(),
@@ -337,19 +342,19 @@ def init_widgets_list():
             background=colors[3]
         ),
         widget.TextBox(
-            text='',
+            text='',
             #font = "Ubuntu Mono",
             foreground=colors[1],
             background=colors[4],
             padding=0,
             fontsize=30,
         ),
-        widget.ThermalSensor(
-            tag_sensor="Package id 0",
+        widget.Battery(
             foreground=colors[1],
             background=colors[4],
-            threshold=90,
-            fmt='Temp: {}',
+            fmt='Bat:  {}',
+            charge_char='',
+            notify_below=20,
             padding=10
         ),
         widget.Image(
@@ -368,7 +373,9 @@ def init_widgets_list():
             colour_no_updates=colors[1],
             foreground=colors[1],
             background=colors[5],
-            padding=5
+            padding=5,
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(
+                'pacman -Syu')},
         ),
         widget.Image(
             filename='~/.config/qtile/arrow4.png',
@@ -398,8 +405,7 @@ def init_widgets_list():
         widget.TextBox(
             text='',
             #text = '🔇',
-            #text = '',
-
+            #text = '',
             foreground=colors[1],
             background=colors[7],
             padding=0,
@@ -410,7 +416,7 @@ def init_widgets_list():
         widget.Volume(
             foreground=colors[1],
             background=colors[7],
-            mute_command="amixer -q set Master toggle && amixer -q set Headphone unmute",
+            mute_command="amixer -D pulse sset Master toggle",
             fmt='Vol: {}',
             padding=5
         ),
@@ -427,14 +433,14 @@ def init_widgets_list():
             padding=0,
             fontsize=37,
             mouse_callbacks={
-                "Button1": lambda: qtile.cmd_spawn("/home/linus/.config/qtile/networkManage.sh")
+                "Button1": lambda: qtile.cmd_spawn("/home/linus/.config/qtile/network-dmenu")
             }
         ),
         widget.Wlan(
             #interface = 'wlp0s20f0u1',
             disconnected_message="Disconnected",
             #format = 'Net: {down} ↓↑ {up}',
-            interface="wlp0s20f0u1",
+            interface="wlo1",
             foreground=colors[1],
             background=colors[8],
             padding=10,
@@ -474,7 +480,7 @@ def init_screens():
     return [Screen(
         wallpaper='~/.config/qtile/background.jpg',
         wallpaper_mode='stretch',
-        bottom=bar.Bar(widgets=init_widgets_screen(), opacity=1.0, size=24)
+        top=bar.Bar(widgets=init_widgets_screen(), opacity=1.0, size=24)
     )]
 
 
