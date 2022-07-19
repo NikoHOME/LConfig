@@ -1,4 +1,4 @@
-pacman -Sy firefox thunar ranger git neofetch picom neovim lightdm-webkit2-greeter fish dmenu rofi python python-psutil python-iwlib alsa-utils ttf-ubuntu-font-family ttf-font-awesome
+pacman -Sy firefox thunar ranger git neofetch picom neovim lightdm-webkit2-greeter fish dmenu rofi python python-psutil python-iwlib alsa-utils ttf-ubuntu-font-family ttf-font-awesome udisks2 udiskie ntfs-3g
 
 cd ..
 cp -rf dotfiles/config/* .config
