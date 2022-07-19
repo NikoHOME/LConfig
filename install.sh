@@ -1,11 +1,11 @@
-#pacman -Sy firefox thunar ranger git neofetch picom neovim lightdm-webkit2-greeter fish dmenu rofi python python-psutil python-iwlib alsa-utils ttf-ubuntu-font-family ttf-font-awesome
+pacman -Sy firefox thunar ranger git neofetch picom neovim lightdm-webkit2-greeter fish dmenu rofi python python-psutil python-iwlib alsa-utils ttf-ubuntu-font-family ttf-font-awesome
 
-git clone https://github.com/NikoHOME/dotfiles
-cd dotfiles
-cp -rf config/* ~/.config
-cd ~/dotfiles/theme
+cd ..
+cp -rf dotfiles/config/* .config
+cd dotfiles/theme
 
 cp -rf Sweet-Dark-v40 /usr/share/themes
+
 echo "gtk-icon-theme-name = \"Adwaita\"                                                                              
     gtk-theme-name = \"Sweet-Dark-v40\"
     gtk-font-name = \"Cantarell 11\"">/usr/share/gtk-2.0/gtkrc
