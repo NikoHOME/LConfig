@@ -18,3 +18,7 @@ gtk-font-name = Cantarell 11">/usr/share/gtk-3.0/settings.ini
 rm -rf Sweet-Dark-v40
 cd ~
 rm -rf dotfiles
+
+//yay
+//fish defualt shell
+//vs code yay
