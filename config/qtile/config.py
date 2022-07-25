@@ -3,7 +3,7 @@
 # Copyright (c) 2012 Randall Ma
 # Copyright (c) 2012-2014 Tycho Andersen
 # Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
+# Copyright (c) 2013 horsik 
 # Copyright (c) 2013 Tao Sauvage
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -342,7 +342,7 @@ def init_widgets_list():
             background=colors[3]
         ),
         widget.TextBox(
-            text='',
+            text=' ',
             #font = "Ubuntu Mono",
             foreground=colors[1],
             background=colors[4],
