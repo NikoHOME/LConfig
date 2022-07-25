@@ -70,7 +70,7 @@ rm -rf betterlockscreen-main
 #yay
 pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
-cd yay
+cd yay-bin
 makepkg -si
 cd ..
 rm -rf yay
