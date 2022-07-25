@@ -1,4 +1,46 @@
-# dotfiles
-Personal Linux config and more
+# Dotfiles
+## Screenshot
 
-![2022-07-07-214948_1920x1080_scrot](https://user-images.githubusercontent.com/88329920/177860466-a29d6841-eeae-49d4-b5b7-958c1c9748e1.png)
+![2022-07-25-193510_1920x1080_scrot](https://user-images.githubusercontent.com/88329920/180839591-112717c1-f1f3-44e7-9ee7-cc5350ea9651.png)
+
+## Info
+WM : Qtile <br>
+DM : LightDM <br>
+Dmenu : rofi <br>
+Term : Alacitty <br>
+Gtk Theme : Sweet-Dark <br>
+Fonts : Awesome Ubuntu Jetbrains <br>
+Text Editor : nvim <br>
+File Explorer : ranger / thunar <br>
+Image Viewer : Eye of Gnome <br>
+Video Player : mpv <br>
+Audio Player : cmus <br> 
+## Warning
+The extra installation script modifies root configuration files and keymap to polish
+## Additional packages
+gimp <br>
+inkscape <br>
+krita <br>
+libreoffice <br>
+vscode <br>
+discord <br>
+onedrive <br>
+
+## Installation
+```
+git clone https://github.com/NikoHOME/dotfiles.git
+cd dotfiles
+chmod +x ./install.sh
+sudo ./install.sh
+```
+One line version
+```
+git clone https://github.com/NikoHOME/dotfiles.git && cd dotfiles && chmod +x ./install.sh && sudo ./install.sh
+```
+For additional packages <br>
+```
+chmod +x ./install-extra.sh && ./install-extra.sh
+```
+
+
+
