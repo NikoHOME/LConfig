@@ -91,6 +91,7 @@ rm -rf rofi
 #config
 
 cp -rf config/* .config
+cp -rf local/*  ../.local/share/omf/themes/slacker/fish_prompt.fish
 mkdir /usr/share/fonts/jetbrains-nerd
 cp -rf fonts/* /usr/share/fonts/jetbrains-nerd
 cp -rf faillock.conf /etc/security/faillock.conf
