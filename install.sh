@@ -24,6 +24,8 @@ Packages=(
     "noto-fonts-emoji"
     "xorg-mkfontdir"
     "xorg"
+    "htop"
+    "scrot"
     "udisks2"
     "udiskie"
     "ntfs-3g" 
@@ -94,8 +96,6 @@ cp -rf config/* .config
 cp -rf local/*  ../.local/share/omf/themes/slacker/fish_prompt.fish
 mkdir /usr/share/fonts/jetbrains-nerd
 cp -rf fonts/* /usr/share/fonts/jetbrains-nerd
-cp -rf faillock.conf /etc/security/faillock.conf
-cp -rf hosts /etc/hosts
 betterlockscreen -u ~/.config/qtile/background.jpg 
 
 #theme
@@ -112,9 +112,6 @@ echo "[Settings]
 gtk-icon-theme-name = Adwaita
 gtk-theme-name = Sweet-Dark-v40
 gtk-font-name = Cantarell 11">/usr/share/gtk-3.0/settings.ini
-
-#keymap
-localectl --no-convert set-x11-keymap pl
 
 #service
 systenctl enable NetworkManager.service

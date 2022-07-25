@@ -3,7 +3,6 @@ Packages=(
     "krita"
     "inkscape"
     "libreoffice-fresh"
-    "scrot"
     "qt"
     "discord"
 )
@@ -33,6 +32,7 @@ cd ..
 cd ..
 rm -rf onedrive_tray
 
+#better discord
 git clone https://aur.archlinux.org/betterdiscord-installer.git
 cd betterdiscord-installer
 makepkg -sci
@@ -40,6 +40,13 @@ cd ..
 rm -rf betterdiscord-installer
 
 betterdiscord-installer --no-sandbox
+
+#keymap
+localectl --no-convert set-x11-keymap pl
+
+#root config
+cp -rf faillock.conf /etc/security/faillock.conf
+cp -rf hosts /etc/hosts
 
 systemctl enable --user onedrive_tray.service
 
