@@ -5,6 +5,7 @@ Packages=(
     "libreoffice-fresh"
     "scrot"
     "qt"
+    "discord"
 )
 
 pacman -Sy ${Packages[@]}
@@ -31,6 +32,14 @@ make install
 cd ..
 cd ..
 rm -rf onedrive_tray
+
+git clone https://aur.archlinux.org/betterdiscord-installer.git
+cd betterdiscord-installer
+makepkg -sci
+cd ..
+rm -rf betterdiscord-installer
+
+betterdiscord-installer --no-sandbox
 
 systemctl enable --user onedrive_tray.service
 

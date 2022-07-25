@@ -1,6 +1,10 @@
 window:
   opacity: 0.8
-
+font:
+  normal:
+    family: UbuntuMono
+    style:  Regular
+  size: 13.0
 
 color_schemes:
 

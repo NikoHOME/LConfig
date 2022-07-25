@@ -328,7 +328,7 @@ def init_widgets_list():
             foreground=colors[1],
             background=colors[3],
             padding=0,
-            fontsize=20
+            fontsize=30
         ),
         widget.Net(
             #interface = 'wlp0s20f0u1',
@@ -342,12 +342,12 @@ def init_widgets_list():
             background=colors[3]
         ),
         widget.TextBox(
-            text=' ',
+            text='',
             #font = "Ubuntu Mono",
             foreground=colors[1],
             background=colors[4],
             padding=0,
-            fontsize=20,
+            fontsize=30,
         ),
         #widget.ThermalSensor(
         #    tag_sensor="Package id 0",
@@ -357,6 +357,22 @@ def init_widgets_list():
         #    fmt='Temp: {}',
         #    padding=10
         #),
+        #widget.TextBox(
+        #    text=' ',
+        #    #font = "Ubuntu Mono",
+        #    foreground=colors[1],
+        #    background=colors[4],
+        #    padding=0,
+        #    fontsize=30,
+        #),
+        widget.TextBox(
+            text=' ',
+            #font = "Ubuntu Mono",
+            foreground=colors[1],
+            background=colors[4],
+            padding=0,
+            fontsize=30,
+        ),
         widget.Battery(
             foreground=colors[1],
             background=colors[4],
@@ -395,7 +411,7 @@ def init_widgets_list():
             foreground=colors[1],
             background=colors[6],
             padding=0,
-            fontsize=20,
+            fontsize=30,
         ),
         widget.Memory(
             foreground=colors[1],
@@ -417,7 +433,7 @@ def init_widgets_list():
             foreground=colors[1],
             background=colors[7],
             padding=0,
-            fontsize=20,
+            fontsize=30,
             mouse_callbacks={
                 "Button1": lambda: qtile.cmd_simulate_keypress(["control"], "1")}
         ),
@@ -439,7 +455,7 @@ def init_widgets_list():
             foreground=colors[1],
             background=colors[8],
             padding=0,
-            fontsize=20,
+            fontsize=30,
             mouse_callbacks={
                 "Button1": lambda: qtile.cmd_spawn("/home/linus/.config/qtile/network-dmenu")
             }
@@ -466,7 +482,7 @@ def init_widgets_list():
             background=colors[9],
             padding=0,
             # mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("pavucontrol")},
-            fontsize=20,
+            fontsize=30,
         ),
         widget.Clock(
             foreground=colors[1],
