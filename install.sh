@@ -73,7 +73,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay-bin
 makepkg -si
 cd ..
-rm -rf yay
+rm -rf yay-bin
 
 #fish
 echo /usr/bin/fish | sudo tee -a /etc/shells
