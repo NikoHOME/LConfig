@@ -3,7 +3,7 @@
 # Copyright (c) 2012 Randall Ma
 # Copyright (c) 2012-2014 Tycho Andersen
 # Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik 
+# Copyright (c) 2013 horsik
 # Copyright (c) 2013 Tao Sauvage
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -132,11 +132,11 @@ groups = [Group("1", layout='columns', spawn='code', label="DEV"),
           Group("2", layout='columns', spawn='firefox', label="WWW"),
           Group("3", layout='columns', spawn='alacritty', label="SYS"),
           Group("4", layout='columns', spawn='alacritty -e ranger', label="SYS"),
-          Group("5", layout='columns', matches=[Match(wm_class='-discord')], label="CHAT"),
-          Group("6", layout='monadtall', label="DOC"),
-          Group("7", layout='monadtall', label="MUS"),
-          Group("8", layout='monadtall', label="VID"),
-          Group("9", layout='floating', label="GFX")]
+          Group("5", layout='columns', matches=[Match(wm_class='-discord')], label="DIS"),
+          Group("6", layout='floating',matches=[Match(title='-steam',wm_class='-steam')], label="STM"),
+          Group("7", layout='monadtall', label="VID"),
+          Group("8", layout='monadtall', label="DOC"),
+          Group("9", layout='floating', label="DOC")]
 
 
 layout_theme = {"border_width": 2,
@@ -274,7 +274,7 @@ def init_widgets_list():
             foreground=colors[2],
             background=colors[0]
         ),
-        widget.TextBox(
+        widget.TextBox( 
             text='|',
             font="Ubuntu Mono",
             background=colors[0],
@@ -335,7 +335,7 @@ def init_widgets_list():
             format='Net: {down} ↓↑ {up}',
             foreground=colors[1],
             background=colors[3],
-            padding=10
+            padding=5
         ),
         widget.Image(
             filename='~/.config/qtile/arrow2.png',
@@ -349,36 +349,12 @@ def init_widgets_list():
             padding=0,
             fontsize=30,
         ),
-        #widget.ThermalSensor(
-        #    tag_sensor="Package id 0",
-        #    foreground=colors[1],
-        #    background=colors[4],
-        #    threshold=90,
-        #    fmt='Temp: {}',
-        #    padding=10
-        #),
-        #widget.TextBox(
-        #    text=' ',
-        #    #font = "Ubuntu Mono",
-        #    foreground=colors[1],
-        #    background=colors[4],
-        #    padding=0,
-        #    fontsize=30,
-        #),
-        widget.TextBox(
-            text=' ',
-            #font = "Ubuntu Mono",
+        widget.ThermalSensor(
+            tag_sensor="Package id 0",
             foreground=colors[1],
             background=colors[4],
-            padding=0,
-            fontsize=30,
-        ),
-        widget.Battery(
-            foreground=colors[1],
-            background=colors[4],
-            fmt='Bat:  {}',
-            charge_char='',
-            notify_below=20,
+            threshold=90,
+            fmt='Temp: {}',
             padding=5
         ),
         widget.Image(
@@ -407,7 +383,7 @@ def init_widgets_list():
         ),
         widget.TextBox(
             text='',
-            #font = "Ubuntu Mono",
+            #font = "JetBrains Mono",
             foreground=colors[1],
             background=colors[6],
             padding=0,
@@ -451,7 +427,7 @@ def init_widgets_list():
         ),
         widget.TextBox(
             text='',
-            #font = "Ubuntu Mono",
+            #font = "JetBrains Mono",
             foreground=colors[1],
             background=colors[8],
             padding=0,
