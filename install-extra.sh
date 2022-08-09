@@ -48,6 +48,5 @@ localectl --no-convert set-x11-keymap pl
 cp -rf faillock.conf /etc/security/faillock.conf
 cp -rf hosts /etc/hosts
 
-systemctl enable --user onedrive_tray.service
 
 
