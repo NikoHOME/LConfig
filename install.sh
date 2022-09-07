@@ -36,6 +36,7 @@ Packages=(
     "mpv"
     "inetutils"
     "unzip"
+    "galculator"
 )
 
 pacman -Sy ${Packages[@]}
@@ -114,7 +115,7 @@ gtk-theme-name = Sweet-Dark-v40
 gtk-font-name = Cantarell 11">/usr/share/gtk-3.0/settings.ini
 
 #service
-systenctl enable NetworkManager.service
+systemctl enable NetworkManager.service
 systemctl enable lightdm.service
 
 
