@@ -13,8 +13,7 @@ Packages=(
 PackagesYay=(
     "lightdm-webkit-theme-osmos"
     "visual-studio-code-bin"
-    "onedrive-abraunegg"
-    "onedrive_tray.git"
+    "onedriver"
     "betterdiscord-installer"
 )
 
