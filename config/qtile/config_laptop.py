@@ -84,59 +84,42 @@ keys = [
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "q", lazy.reload_config(), desc="Reload the config"),
 
-    Key([mod], "a",
-        lazy.spawn("rofi -show run"),
-        desc="Spawn rofi run"
-        ),
-    Key([mod], "s",
-        lazy.spawn("rofi -show drun"),
-        desc="Spawn rofi drun"
-        ),
-    Key(["mod1"], "Tab",
-        lazy.spawn("rofi -show  window"),
-        desc="Spawn rofi window"
-        ),
-    Key([mod], "q",
-        lazy.spawn("/home/linus/.config/qtile/rofi-close.sh"),
-        desc="Spawn rofi power menu"
-        ),
-    Key([mod], "d",
-        lazy.spawn("/home/linus/.config/qtile/rofi-fav.sh"),
-        desc="Spawn rofi favourite apps"
-        ),
-    Key([], "XF86AudioMute",
-        lazy.spawn("amixer -D pulse sset Master toggle"),
-        #lazy.spawn("amixer -q set Headphone unmute"),
-        desc="Mute/Unmute Volume"
-        ),
-    Key([], "XF86AudioLowerVolume",
-        lazy.spawn("amixer -c 1 sset Master 2- unmute"),
-        desc="Lower Volume"
-        ),
-    Key([], "XF86AudioRaiseVolume",
-        lazy.spawn("amixer -c 1 sset Master 2+ unmute"),
-        desc="Raise Volume"
-        ),
-    Key([mod], "o",
-        lazy.spawn("betterlockscreen -l dim"),
-        desc="Lock Screen"
-        ),
+    Key([mod], "a",         lazy.spawn("rofi -show run"),),
+    Key([mod], "s",         lazy.spawn("rofi -show drun"),),
+    Key(["mod1"], "Tab",    lazy.spawn("rofi -show  window"),),
+    Key([mod], "q",         lazy.spawn("/home/linus/.config/qtile/bin/rofi-close.sh"),),
+    Key([mod], "d",         lazy.spawn("/home/linus/.config/qtile/bin/rofi-fav.sh"),),
+    Key([mod], "o",         lazy.spawn("betterlockscreen -l dim"), ),
+    Key(["control"], "2",   lazy.spawn("/home/linus/.config/qtile/bin/network-dmenu"),),
 
-    Key(["control"], "2",
-        lazy.spawn("/home/linus/.config/qtile/network-dmenu"),
-        desc="Manage Network"
-        ),
+    Key([], "XF86AudioMute",            lazy.spawn("amixer -D pulse sset Master toggle"),),
+    Key([], "XF86AudioLowerVolume",     lazy.spawn("amixer -c 1 sset Master 2- unmute") ),
+    Key([], "XF86AudioRaiseVolume",     lazy.spawn("amixer -c 1 sset Master 2+ unmute")),
+    Key([], "XF86MonBrightnessUp",      lazy.spawn("brightnessctl -s set +50")),
+    Key([], "XF86MonBrightnessDown",    lazy.spawn("brightnessctl -s set 50-")),
+
+    Key([mod,"control"], "KP_Insert", lazy.spawn("alacritty -e /home/linus/.config/qtile/bin/disableliveaudio.sh") ),
+    Key([mod], "KP_Insert", lazy.spawn("alacritty -e /home/linus/.config/qtile//bin/goliveaudio.sh") ),
+    Key([], "KP_End",       lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=40 /home/linus/.config/qtile/audio/fart.mp3") ),
+    Key([], "KP_Down",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=40 /home/linus/.config/qtile/audio/vineboom.mp3") ),
+    Key([], "KP_Next",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/bruh.mp3") ),
+    Key([], "KP_Left",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=40 /home/linus/.config/qtile/audio/ohmygod.mp3") ),
+    Key([], "KP_Begin",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/steve.mp3") ),
+    Key([], "KP_Right",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=60 /home/linus/.config/qtile/audio/creeper.mp3") ),
+    Key([], "KP_Home",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=30 /home/linus/.config/qtile/audio/woah.mp3") ),
+    Key([], "KP_Up",        lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=30 /home/linus/.config/qtile/audio/amongus.mp3") ),
+    Key([], "KP_Prior",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=60 /home/linus/.config/qtile/audio/aaa.mp3") ),
 ]
 
-groups = [Group("1", layout='columns', spawn='code', label="DEV"),
+groups = [Group("1", layout='columns', label="DEV"),
           Group("2", layout='columns', spawn='firefox', label="WWW"),
           Group("3", layout='columns', spawn='alacritty', label="SYS"),
           Group("4", layout='columns', spawn='alacritty -e ranger', label="SYS"),
-          Group("5", layout='columns', matches=[Match(wm_class='-discord')], label="CHAT"),
-          Group("6", layout='monadtall', label="DOC"),
-          Group("7", layout='monadtall', label="MUS"),
-          Group("8", layout='monadtall', label="VID"),
-          Group("9", layout='floating', label="GFX")]
+          Group("5", layout='columns', matches=[Match(wm_class='-discord')], label="DIS"),
+          Group("6", layout='floating', matches=[Match(wm_class='-steam')], label="STM"),
+          Group("7", layout='monadtall', matches=[Match(wm_class='-minecrafts')],label="VID"),
+          Group("8", layout='monadtall', label="DOC"),
+          Group("9", layout='floating', label="DOC")]
 
 
 layout_theme = {"border_width": 2,
@@ -175,7 +158,7 @@ for i in groups:
 
 groups.append(ScratchPad('dropdown', [
     DropDown('mixer', 'pavucontrol', x=0.25, y=0.25, width=0.5,
-             height=0.5, opacity=0.8, on_focus_lost_hide=False)
+             height=0.5, opacity=0.9, on_focus_lost_hide=False)
     #DropDown('wlan', 'nm-connection-editor', x=0.25, y=0.25, width=0.5,
     #         height=0.5, opacity=0.8, on_focus_lost_hide=False)
 ]))
@@ -243,7 +226,7 @@ def init_widgets_list():
             background=colors[0]
         ),
         widget.Image(
-            filename="~/.config/qtile/cwz2.png",
+            filename="~/.config/qtile/img/cwz2.png",
             scale="False",
             background=colors[0],
             #mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal)}
@@ -318,13 +301,11 @@ def init_widgets_list():
             background=colors[0]
         ),
         widget.Image(
-            filename='~/.config/qtile/arrow1.png',
-            scale=1.5,
+            filename='~/.config/qtile/img/arrow1.png',
             background=colors[0]
         ),
-
         widget.TextBox(
-            text='',
+            text='',
             foreground=colors[1],
             background=colors[3],
             padding=0,
@@ -332,53 +313,65 @@ def init_widgets_list():
         ),
         widget.Net(
             #interface = 'wlp0s20f0u1',
-            format='Net: {down} ↓↑ {up}',
+            format='Net:  {down} {up}',
             foreground=colors[1],
             background=colors[3],
-            padding=10
+            prefix='M',
+            padding=5
         ),
         widget.Image(
-            filename='~/.config/qtile/arrow2.png',
+            filename='~/.config/qtile/img/arrow2.png',
             background=colors[3]
         ),
+
+#        widget.BatteryIcon(
+#            foreground=colors[1],
+#            background=colors[4],
+#            theme_path='/home/linus/.config/qtile/theme',
+#            scale = 1,
+#            padding=0
+#        ),
         widget.TextBox(
             text='',
-            #font = "Ubuntu Mono",
             foreground=colors[1],
             background=colors[4],
             padding=0,
-            fontsize=30,
+            fontsize=30
         ),
         widget.Battery(
             foreground=colors[1],
             background=colors[4],
-            fmt='Bat:  {}',
             charge_char='',
+            discharge_char='',
+            empty_char='',
+            full_char='',
+            low_percentage=0.2,
+            format='Bat: {char} {percent:2.0%} {hour:d}:{min:02d}',
             notify_below=20,
-            padding=10
+            padding=5
         ),
         widget.Image(
-            filename='~/.config/qtile/arrow3.png',
+            filename='~/.config/qtile/img/arrow3.png',
             background=colors[4]
         ),
         widget.Image(
-            filename='~/.config/qtile/archicon.png',
+            filename='~/.config/qtile/img/archicon.png',
             margin=2,
             background=colors[5]
         ),
         widget.CheckUpdates(
-            update_interval=1800,
+            update_interval = 1800,
             no_update_string="No Updates",
             colour_have_updates=colors[1],
             colour_no_updates=colors[1],
             foreground=colors[1],
             background=colors[5],
             padding=5,
-            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(
-                'pacman -Syu')},
+            execute='exec alacritty -e sudo pacman -Syu'
+
         ),
         widget.Image(
-            filename='~/.config/qtile/arrow4.png',
+            filename='~/.config/qtile/img/arrow4.png',
             background=colors[5]
         ),
         widget.TextBox(
@@ -395,10 +388,10 @@ def init_widgets_list():
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(
                 terminal + ' -e htop')},
             fmt='Mem: {}',
-            padding=10
+            padding=5
         ),
         widget.Image(
-            filename='~/.config/qtile/arrow5.png',
+            filename='~/.config/qtile/img/arrow5.png',
             scale=1.5,
             background=colors[6]
         ),
@@ -421,7 +414,7 @@ def init_widgets_list():
             padding=5
         ),
         widget.Image(
-            filename='~/.config/qtile/arrow6.png',
+            filename='~/.config/qtile/img/arrow6.png',
             scale=1.5,
             background=colors[7]
         ),
@@ -433,22 +426,22 @@ def init_widgets_list():
             padding=0,
             fontsize=37,
             mouse_callbacks={
-                "Button1": lambda: qtile.cmd_spawn("/home/linus/.config/qtile/network-dmenu")
-            }
+                "Button1": lambda: qtile.cmd_simulate_keypress(["control"], "2")}
+            
         ),
         widget.Wlan(
             #interface = 'wlp0s20f0u1',
             disconnected_message="Disconnected",
-            #format = 'Net: {down} ↓↑ {up}',
+            #format = 'Con: {quality}/70 {essid}',
             interface="wlo1",
             foreground=colors[1],
             background=colors[8],
-            padding=10,
+            padding=5,
             mouse_callbacks={
                 "Button1": lambda: qtile.cmd_simulate_keypress(["control"], "2")}
         ),
         widget.Image(
-            filename='~/.config/qtile/arrow7.png',
+            filename='~/.config/qtile/img/arrow7.png',
             scale=1.5,
             background=colors[8]
         ),
@@ -463,7 +456,8 @@ def init_widgets_list():
         widget.Clock(
             foreground=colors[1],
             background=colors[9],
-            padding=10,
+            padding=5,
+            markup=False,
             format="%A, %B %d - %H:%M "
         ),
     ]
@@ -478,7 +472,7 @@ def init_widgets_screen():
 
 def init_screens():
     return [Screen(
-        wallpaper='~/.config/qtile/background.jpg',
+        wallpaper='~/.config/qtile/img/background.jpg',
         wallpaper_mode='stretch',
         top=bar.Bar(widgets=init_widgets_screen(), opacity=1.0, size=24)
     )]
@@ -488,7 +482,6 @@ if __name__ in ["config", "__main__"]:
     screens = init_screens()
     widgets_list = init_widgets_list()
     widgets_screen = init_widgets_screen()
-
 
 from floating_window_snapping import move_snap_window
 
