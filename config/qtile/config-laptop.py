@@ -92,6 +92,8 @@ keys = [
     Key([mod], "o",         lazy.spawn("betterlockscreen -l dim"), ),
     Key(["control"], "2",   lazy.spawn("/home/linus/.config/qtile/bin/network-dmenu"),),
 
+    Key([mod], "Print", lazy.spawn("scrot -s /home/linus/scrot/%Y-%m-%d_$wx$h.png")),
+
     Key([], "XF86AudioMute",            lazy.spawn("amixer -D pulse sset Master toggle"),),
     Key([], "XF86AudioLowerVolume",     lazy.spawn("amixer -c 1 sset Master 2- unmute") ),
     Key([], "XF86AudioRaiseVolume",     lazy.spawn("amixer -c 1 sset Master 2+ unmute")),
@@ -99,16 +101,118 @@ keys = [
     Key([], "XF86MonBrightnessDown",    lazy.spawn("brightnessctl -s set 50-")),
 
     Key([mod,"control"], "KP_Insert", lazy.spawn("alacritty -e /home/linus/.config/qtile/bin/disableliveaudio.sh") ),
-    Key([mod], "KP_Insert", lazy.spawn("alacritty -e /home/linus/.config/qtile//bin/goliveaudio.sh") ),
-    Key([], "KP_End",       lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=40 /home/linus/.config/qtile/audio/fart.mp3") ),
-    Key([], "KP_Down",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=40 /home/linus/.config/qtile/audio/vineboom.mp3") ),
-    Key([], "KP_Next",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/bruh.mp3") ),
-    Key([], "KP_Left",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=40 /home/linus/.config/qtile/audio/ohmygod.mp3") ),
-    Key([], "KP_Begin",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/steve.mp3") ),
-    Key([], "KP_Right",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=60 /home/linus/.config/qtile/audio/creeper.mp3") ),
-    Key([], "KP_Home",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=30 /home/linus/.config/qtile/audio/woah.mp3") ),
-    Key([], "KP_Up",        lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=30 /home/linus/.config/qtile/audio/amongus.mp3") ),
-    Key([], "KP_Prior",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=60 /home/linus/.config/qtile/audio/aaa.mp3") ),
+    Key([mod], "KP_Insert", lazy.spawn("/home/linus/.config/qtile/bin/goliveaudio.sh") ),
+
+    Key([], "KP_End",       lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=40 /home/linus/.config/qtile/audio/1/1vineboom.mp3") ),
+    Key([], "KP_Down",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=40 /home/linus/.config/qtile/audio/1/2bruh.mp3") ),
+    Key([], "KP_Next",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=40 /home/linus/.config/qtile/audio/1/3clashroyalelaugh.mp3") ),
+    Key([], "KP_Left",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=30 /home/linus/.config/qtile/audio/1/4alert.mp3") ),
+    Key([], "KP_Begin",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/6/steve.mp3") ),
+    Key([], "KP_Right",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=30 /home/linus/.config/qtile/audio/1/6ohmygod.mp3") ),
+    Key([], "KP_Home",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/1/7aaashort.mp3") ),
+    Key([], "KP_Up",        lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=35 /home/linus/.config/qtile/audio/1/8fart.mp3") ),
+    Key([], "KP_Prior",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/1/9uwu.mp3") ),
+    Key([], "KP_Insert",    lazy.ungrab_all_chords() ),
+    Key([], "KP_Enter",    lazy.spawn("killall mpv") ),
+
+    KeyChord([mod], "KP_End", [
+        Key([], "KP_End",       lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/2/bonk.mp3") ),
+        Key([], "KP_Down",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/2/bruh.mp3") ),
+        Key([], "KP_Next",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/2/clashroyalelaugh.mp3") ),
+        Key([], "KP_Left",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/2/goddamn.mp3") ),
+        Key([], "KP_Begin",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/2/ohmygod.mp3") ),
+        Key([], "KP_Right",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/2/reload.mp3") ),
+        Key([], "KP_Home",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/2/vineboom.mp3") ),
+        Key([], "KP_Up",        lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/2/woah.mp3") ),
+        Key([], "KP_Prior",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/2/yeet.mp3") ),
+        Key([], "KP_Insert",    lazy.ungrab_all_chords() ),
+        Key([], "KP_Enter",    lazy.spawn("killall mpv") )],
+        mode="Sound2"
+    ),
+    KeyChord([mod], "KP_Down", [
+        Key([], "KP_End",       lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/3/alert.mp3") ),
+        Key([], "KP_Down",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/3/fart.mp3") ),
+        Key([], "KP_Next",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/3/fartwet.mp3") ),
+        Key([], "KP_Left",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/3/moai.mp3") ),
+        Key([], "KP_Begin",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/3/oof.mp3") ),
+        Key([], "KP_Right",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/3/spongebob-fail.mp3") ),
+        Key([], "KP_Home",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/3/spongebob-womp.mp3") ),
+        Key([], "KP_Up",        lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/3/tyler1gun.mp3") ),
+        Key([], "KP_Prior",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/3/tyler1gun.mp3") ),
+        Key([], "KP_Insert",    lazy.ungrab_all_chords() ),
+        Key([], "KP_Enter",    lazy.spawn("killall mpv") )],  
+        mode="Sound3"
+    ),
+    KeyChord([mod], "KP_Next", [
+        Key([], "KP_End",       lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/4/aaa.mp3") ),
+        Key([], "KP_Down",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/4/aaaloud.mp3") ),
+        Key([], "KP_Next",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/4/aaashort.mp3") ),
+        Key([], "KP_Left",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/4/amogus.mp3") ),
+        Key([], "KP_Begin",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/4/amongus.mp3") ),
+        Key([], "KP_Right",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/4/amongusemergency.mp3") ),
+        Key([], "KP_Home",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/4/amongusstart.mp3") ),
+        Key([], "KP_Up",        lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/4/siuu.mp3") ),
+        Key([], "KP_Prior",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/4/yoda.mp3") ),
+        Key([], "KP_Insert",    lazy.ungrab_all_chords() ),
+        Key([], "KP_Enter",    lazy.spawn("killall mpv") )],  
+        mode="Sound4"
+    ),
+    KeyChord([mod], "KP_Left", [
+        Key([], "KP_End",       lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/5/applause.mp3") ),
+        Key([], "KP_Down",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/5/creeper.mp3") ),
+        Key([], "KP_Next",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/5/discordcall.mp3") ),
+        Key([], "KP_Left",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/5/discordping.mp3") ),
+        Key([], "KP_Begin",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/5/fnaf.mp3") ),
+        Key([], "KP_Right",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/5/gtasa.mp3") ),
+        Key([], "KP_Home",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/5/knock.mp3") ),
+        Key([], "KP_Up",        lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/5/laugh.mp3") ),
+        Key([], "KP_Prior",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/5/laugh.mp3") ),
+        Key([], "KP_Insert",    lazy.ungrab_all_chords() ),
+        Key([], "KP_Enter",    lazy.spawn("killall mpv") )],  
+        mode="Sound5"
+    ),
+    KeyChord([mod], "KP_Begin", [
+        Key([], "KP_End",       lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/6/ben-no.mp3") ),
+        Key([], "KP_Down",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/6/ben-yes.mp3") ),
+        Key([], "KP_Next",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/6/burglecall.mp3") ),
+        Key([], "KP_Left",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/6/sadtrumpet.mp3") ),
+        Key([], "KP_Begin",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/6/sadtrumpet2.mp3") ),
+        Key([], "KP_Right",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/6/steve.mp3") ),
+        Key([], "KP_Home",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/6/uwu.mp3") ),
+        Key([], "KP_Up",        lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/6/uwu.mp3") ),
+        Key([], "KP_Prior",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/6/uwu.mp3") ),
+        Key([], "KP_Insert",    lazy.ungrab_all_chords() ),
+        Key([], "KP_Enter",    lazy.spawn("killall mpv") )],  
+        mode="Sound6"
+    ),
+    KeyChord([mod], "KP_Right", [
+        Key([], "KP_End",       lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/7/dababy.mp3") ),
+        Key([], "KP_Down",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/7/phub.mp3") ),
+        Key([], "KP_Next",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/7/sickomode.mp3") ),
+        Key([], "KP_Left",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/7/wolveskanye.mp3") ),
+        Key([], "KP_Begin",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/7/wolveskanye.mp3") ),
+        Key([], "KP_Right",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/7/wolveskanye.mp3") ),
+        Key([], "KP_Home",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/7/wolveskanye.mp3") ),
+        Key([], "KP_Up",        lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/7/wolveskanye.mp3") ),
+        Key([], "KP_Prior",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/7/wolveskanye.mp3") ),
+        Key([], "KP_Insert",    lazy.ungrab_all_chords() ),
+        Key([], "KP_Enter",    lazy.spawn("killall mpv") )],  
+        mode="Sound7"
+    ),
+    KeyChord([mod], "KP_Home", [
+        Key([], "KP_End",       lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/8/araara1.mp3") ),
+        Key([], "KP_Down",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/8/araara2.mp3") ),
+        Key([], "KP_Next",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/8/araara3.mp3") ),
+        Key([], "KP_Left",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/8/jojo.mp3") ),
+        Key([], "KP_Begin",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/8/necoarc.mp3") ),
+        Key([], "KP_Right",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/8/ora.mp3") ),
+        Key([], "KP_Home",      lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/8/oraora.mp3") ),
+        Key([], "KP_Up",        lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/8/rezero.mp3") ),
+        Key([], "KP_Prior",     lazy.spawn("mpv --audio-device=pulse/VirtualOutput --volume=50 /home/linus/.config/qtile/audio/8/rezero.mp3") ),
+        Key([], "KP_Insert",    lazy.ungrab_all_chords() ),
+        Key([], "KP_Enter",    lazy.spawn("killall mpv") )],  
+        mode="Sound8"
+    )    
 ]
 
 groups = [Group("1", layout='columns', label="DEV"),
@@ -117,7 +221,7 @@ groups = [Group("1", layout='columns', label="DEV"),
           Group("4", layout='columns', spawn='alacritty -e ranger', label="SYS"),
           Group("5", layout='columns', matches=[Match(wm_class='-discord')], label="DIS"),
           Group("6", layout='floating', matches=[Match(wm_class='-steam')], label="STM"),
-          Group("7", layout='monadtall', matches=[Match(wm_class='-minecrafts')],label="VID"),
+          Group("7", layout='monadtall', matches=[Match(wm_class='-minecraft')],label="VID"),
           Group("8", layout='monadtall', label="DOC"),
           Group("9", layout='floating', label="DOC")]
 
@@ -487,11 +591,13 @@ from floating_window_snapping import move_snap_window
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", move_snap_window(snap_dist=30),
+    Drag([mod], "Button1", 
+        move_snap_window(snap_dist=30),
         start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(),
          start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
+    Click([mod], "Button2", lazy.window.toggle_floating()),
+    Click([mod], "Button1", lazy.window.bring_to_front()),
 ]
 
 dgroups_key_binder = None
@@ -537,4 +643,4 @@ def autostartup():
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+wmname = "qtile"
