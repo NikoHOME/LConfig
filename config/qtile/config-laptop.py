@@ -320,6 +320,7 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+widget_icon_size = 16
 
 def init_widgets_list():
     widgets_list = [
@@ -413,7 +414,7 @@ def init_widgets_list():
             foreground=colors[1],
             background=colors[3],
             padding=0,
-            fontsize=30
+            fontsize=widget_icon_size
         ),
         widget.Net(
             #interface = 'wlp0s20f0u1',
@@ -440,7 +441,7 @@ def init_widgets_list():
             foreground=colors[1],
             background=colors[4],
             padding=0,
-            fontsize=30
+            fontsize=widget_icon_size
         ),
         widget.Battery(
             foreground=colors[1],
@@ -484,7 +485,7 @@ def init_widgets_list():
             foreground=colors[1],
             background=colors[6],
             padding=0,
-            fontsize=30,
+            fontsize=widget_icon_size
         ),
         widget.Memory(
             foreground=colors[1],
@@ -506,7 +507,7 @@ def init_widgets_list():
             foreground=colors[1],
             background=colors[7],
             padding=0,
-            fontsize=30,
+            fontsize=widget_icon_size,
             mouse_callbacks={
                 "Button1": lambda: qtile.cmd_simulate_keypress(["control"], "1")}
         ),
@@ -528,7 +529,7 @@ def init_widgets_list():
             foreground=colors[1],
             background=colors[8],
             padding=0,
-            fontsize=37,
+            fontsize=widget_icon_size * 1.2,
             mouse_callbacks={
                 "Button1": lambda: qtile.cmd_simulate_keypress(["control"], "2")}
             
@@ -537,7 +538,7 @@ def init_widgets_list():
             #interface = 'wlp0s20f0u1',
             disconnected_message="Disconnected",
             #format = 'Con: {quality}/70 {essid}',
-            interface="wlo1",
+            interface="wlan0",
             foreground=colors[1],
             background=colors[8],
             padding=5,
@@ -555,7 +556,7 @@ def init_widgets_list():
             background=colors[9],
             padding=0,
             # mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("pavucontrol")},
-            fontsize=30,
+            fontsize=widget_icon_size,
         ),
         widget.Clock(
             foreground=colors[1],
