@@ -1,6 +1,6 @@
 Packages=(
     "linux-headers"
-    "pulseaudio"
+    "pipewire-pulse"
     "firefox"
     "qtile"
     "lightdm"
@@ -10,7 +10,6 @@ Packages=(
     "neofetch"
     "picom"
     "neovim"
-    "lightdm-webkit2-greeter"
     "fish"
     "dmenu"
     "rofi"
@@ -27,6 +26,8 @@ Packages=(
     "noto-fonts-emoji"
     "noto-fonts-cjk"
     "noto-fonts-extra"
+    "ttf-linux-libertine"
+    "ttf-dejavu"
     "xorg-mkfontdir"
     "xorg"
     "htop"
@@ -42,31 +43,36 @@ Packages=(
     "inetutils"
     "unzip"
     "galculator"
-    "gparted"
-    "pacseek"
+    "refind"
+    "efibootmgr"
+    "otf-font-awesomeo"
+    "ttf-jetbrains-mono-nerd"
 )
 
-pacman --needed -Sy ${Packages[@]}
+sudo pacman --needed -Sy ${Packages[@]}
 
-pacman -S --needed git base-devel
+sudo pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
-cd yay-bin
+cd yay
 makepkg -si
 cd ..
-rm -rf yay-bin
+rm -rf yay
 
 PackagesYay=(
     "betterlockscreen"
     "i3lock-color"
-    "sweet-dark-theme"
+    "pacseek"
+    "downgrade"
 )
 
-yay --needed -S ${PackagesYay[@]}
+yay -Sy ${PackagesYay[@]}
+
+refind-install
 
 #service
-systemctl enable NetworkManager.service
-systemctl enable lightdm.service
-systemctl enable betterlockscreen@$USER
+sudo systemctl enable NetworkManager.service
+sudo systemctl enable lightdm.service
+sudo systemctl enable betterlockscreen@$USER
 
 
 

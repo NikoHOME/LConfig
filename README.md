@@ -16,7 +16,7 @@ Image Viewer : Eye of Gnome <br>
 Video Player : mpv <br>
 Audio Player : cmus <br> 
 ## Warning
-The personal installation script modifies root configuration files and keymap to polish
+The personal installation script modifies root configuration files and changes keymap to polish
 ## Additional packages
 gimp <br>
 inkscape <br>
@@ -28,7 +28,6 @@ onedrive <br>
 kdenlive <br>
 audacity <br>
 better-discord <br>
-light-dm-theme-osmos <br>
 
 ## Installation
 ```
@@ -41,7 +40,7 @@ sudo ./install-config.sh
 ```
 One line version
 ```
-git clone https://github.com/NikoHOME/dotfiles.git && cd dotfiles && chmod +x ./install.sh && sudo ./install.sh && chmod +x ./install-config.sh && sudo ./install-config.sh
+git clone https://github.com/NikoHOME/dotfiles.git && cd dotfiles && chmod +x ./install-packages.sh && sudo ./install-packages.sh && chmod +x ./install-config.sh && sudo ./install-config.sh
 ```
 For additional packages <br>
 ```

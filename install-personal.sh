@@ -11,14 +11,19 @@ Packages=(
 )
 
 PackagesYay=(
-    "lightdm-webkit-theme-osmos"
     "visual-studio-code-bin"
     "onedrive-abraunegg"
-    "onedrive_tray.git"
+    "onedrive_tray-git"
+    "youtube-music-bin"
+    "lightdm-settings"
+    "lightdm-slick-greeter"
     "betterdiscord-installer"
+    "sweet-gtk-theme-dark"
 )
 
-pacman --needed -Sy ${Packages[@]}
+sudo pacman -Sy ${Packages[@]}
+
+yay -Sy ${PackagesYay[@]}
 
 betterdiscord-installer --no-sandbox
 
@@ -26,8 +31,10 @@ betterdiscord-installer --no-sandbox
 localectl --no-convert set-x11-keymap pl
 
 #root config
-cp -rf faillock.conf /etc/security/faillock.conf
-cp -rf hosts /etc/hosts
-
+sudo cp -rf faillock.conf /etc/security/faillock.conf
+#refind bootloader theme
+sudo cp -rf refind/* /boot/EFI/refind/
+#lighdm greeter
+sudo cp -rf lightdm/* /etc/lightdm/
 
 
