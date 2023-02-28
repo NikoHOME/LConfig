@@ -34,13 +34,13 @@ better-discord <br>
 git clone https://github.com/NikoHOME/dotfiles.git
 cd dotfiles
 chmod +x ./install-packages.sh
-sudo ./install-packages.sh
+./install-packages.sh
 chmod +x ./install-config.sh
-sudo ./install-config.sh
+./install-config.sh
 ```
 One line version
 ```
-git clone https://github.com/NikoHOME/dotfiles.git && cd dotfiles && chmod +x ./install-packages.sh && sudo ./install-packages.sh && chmod +x ./install-config.sh && sudo ./install-config.sh
+git clone https://github.com/NikoHOME/dotfiles.git && cd dotfiles && chmod +x ./install-packages.sh && ./install-packages.sh && chmod +x ./install-config.sh && ./install-config.sh
 ```
 For additional packages <br>
 ```
