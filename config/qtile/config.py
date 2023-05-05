@@ -306,6 +306,7 @@ def init_widgets_list():
         ),
         widget.TextBox(
             text='',
+            font="Font Awesome",
             foreground=colors[1],
             background=colors[3],
             padding=0,
@@ -327,6 +328,7 @@ def init_widgets_list():
 
         widget.TextBox(
             text='',
+            font="Font Awesome",
             #font = "Ubuntu Mono",
             foreground=colors[1],
             background=colors[4],
@@ -367,6 +369,7 @@ def init_widgets_list():
         ),
         widget.TextBox(
             text='',
+            font="Font Awesome",
             #font = "Ubuntu Mono",
             foreground=colors[1],
             background=colors[6],
@@ -388,6 +391,7 @@ def init_widgets_list():
         ),
         widget.TextBox(
             text='',
+            font="Font Awesome",
             #text = '🔇',
             #text = '',
             foreground=colors[1],
@@ -411,6 +415,7 @@ def init_widgets_list():
         ),
         widget.TextBox(
             text='',
+            font="Font Awesome",
             #font = "Ubuntu Mono",
             foreground=colors[1],
             background=colors[8],
@@ -438,6 +443,7 @@ def init_widgets_list():
         ),
         widget.TextBox(
             text='',
+            font="Font Awesome",
             foreground=colors[1],
             background=colors[9],
             padding=0,

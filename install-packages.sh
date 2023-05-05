@@ -45,7 +45,7 @@ Packages=(
     "galculator"
     "refind"
     "efibootmgr"
-    "otf-font-awesomeo"
+    "ttf-font-awesome"
     "ttf-jetbrains-mono-nerd"
 )
 
@@ -67,7 +67,6 @@ PackagesYay=(
 
 yay -Sy ${PackagesYay[@]}
 
-refind-install
 
 #service
 sudo systemctl enable NetworkManager.service
